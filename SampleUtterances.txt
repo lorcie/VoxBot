@@ -1,0 +1,22 @@
+DescriptionIntent {Description} please
+DescriptionIntent please {Description}
+DescriptionIntent {Description}
+DescriptionIntent tell me about that
+DescriptionIntent description please
+AMAZON.StopIntent stop
+AMAZON.StopIntent off
+AMAZON.StopIntent shut up
+AMAZON.StartOverIntent start over
+AMAZON.StartOverIntent restart
+AMAZON.StartOverIntent start again
+NumberAnswerIntent {number}
+NumberAnswerIntent is it {number}
+NumberAnswerIntent how about {number}
+NumberAnswerIntent could it be {number}
+TagAnswerIntent {Tag}
+GoIntent go {Direction} please
+GoIntent please go {Direction}
+GoIntent {Direction}
+PokemonIntent pokemon {Tag}
+PokedexIntent pokedex {number}
+
