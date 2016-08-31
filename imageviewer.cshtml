@@ -1,0 +1,1482 @@
+@{
+  var poke = "1";
+  var pokedex = -1;
+  if (Request.QueryString["pokedex"] != null) {
+    pokedex = Request.QueryString["pokedex"].AsInt() - 1;
+  }
+  if (pokedex > -1) {
+  	poke = Convert.ToString(pokedex);
+  }
+  else {
+    var pokemon = Request.QueryString["pokemon"];
+	if (pokemon != null) {
+	 var idx = 25;
+	    string[] pokemons={	"Bulbasaur","Ivysaur","Venusaur","Charmander","Charmeleon","Charizard","Squirtle","Wartortle","Blastoise","Caterpie","Metapod","Butterfree","Weedle","Kakuna","Beedrill","Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Ekans","Arbok","Pikachu","Raichu","Sandshrew","Sandslash","NidoranFemale","Nidorina","Nidoqueen","NidoranMale","Nidorino","Nidoking","Clefairy","Clefable","Vulpix","Ninetales","Jigglypuff","Wigglytuff","Zubat","Golbat","Oddish","Gloom","Vileplume","Paras","Parasect","Venonat","Venomoth","Diglett","Dugtrio","Meowth","Persian","Psyduck","Golduck","Mankey","Primeape","Growlithe","Arcanine","Poliwag","Poliwhirl","Poliwrath","Abra","Kadabra","Alakazam","Machop","Machoke","Machamp","Bellsprout","Weepinbell","Victreebel","Tentacool","Tentacruel","Geodude","Graveler","Golem","Ponyta","Rapidash","Slowpoke","Slowbro","Magnemite","Magneton","Farfetched","Doduo","Dodrio","Seel","Dewgong","Grimer","Muk","Shellder","Cloyster","Gastly","Haunter","Gengar","Onix","Drowzee","Hypno","Krabby","Kingler","Voltorb","Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing","Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","Mr_Mime","Scyther","Jynx","Electabuzz","Magmar","Pinsir","Tauros","Magikarp","Gyarados","Lapras","Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite","Mewtwo","Mew" };
+		var data = pokemon.ToUpper();
+		for(idx = 150; idx > 0; idx--) {
+			if (pokemons[idx].ToUpper() == data) {
+			     break;
+		    }
+		}
+		poke = Convert.ToString(idx);
+	}
+  }
+  //handleThumbOnMouseOver(@pokedex);setScrollImages(@pokedex);
+  
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+
+<title>Pokemon GO Browser</title>
+
+</head>
+
+<body onload="javascript:handleThumbOnMouseOver(@poke);setScrollImages(@poke);">
+
+<script language="javascript" type="text/javascript">
+
+
+// Array of image data
+
+var imageData= new Array(151)
+
+createTwoDimensionalArray(3);
+
+
+
+// Image path data
+
+imageData[0][0]="Bulbasaur.png";
+
+imageData[1][0]="Ivysaur.png";
+
+imageData[2][0]="Venusaur.png";
+
+imageData[3][0]="Charmander.png";
+
+imageData[4][0]="Charmeleon.png";
+
+imageData[5][0]="Charizard.png";
+
+imageData[6][0]="Squirtle.png";
+
+imageData[7][0]="Wartortle.png";
+
+imageData[8][0]="Blastoise.png";
+
+imageData[9][0]="Caterpie.png";
+
+imageData[10][0]="Metapod.png";
+
+imageData[11][0]="Butterfree.png";
+
+imageData[12][0]="Weedle.png";
+
+imageData[13][0]="Kakuna.png";
+
+imageData[14][0]="Beedrill.png";
+
+imageData[15][0]="Pidgey.png";
+
+imageData[16][0]="Pidgeotto.png";
+
+imageData[17][0]="Pidgeot.png";
+
+imageData[18][0]="Rattata.png";
+
+imageData[19][0]="Raticate.png";
+
+imageData[20][0]="Spearow.png";
+
+imageData[21][0]="Fearow.png";
+
+imageData[22][0]="Ekans.png";
+
+imageData[23][0]="Arbok.png";
+
+imageData[24][0]="Pikachu.png";
+
+imageData[25][0]="Raichu.png";
+
+imageData[26][0]="Sandshrew.png";
+
+imageData[27][0]="Sandslash.png";
+
+imageData[28][0]="NidoranFemale.png";
+
+imageData[29][0]="Nidorina.png";
+
+imageData[30][0]="Nidoqueen.png";
+
+imageData[31][0]="NidoranMale.png";
+
+imageData[32][0]="Nidorino.png";
+
+imageData[33][0]="Nidoking.png";
+
+imageData[34][0]="Clefairy.png";
+
+imageData[35][0]="Clefable.png";
+
+imageData[36][0]="Vulpix.png";
+
+imageData[37][0]="Ninetales.png";
+
+imageData[38][0]="Jigglypuff.png";
+
+imageData[39][0]="Wigglytuff.png";
+
+imageData[40][0]="Zubat.png";
+
+imageData[41][0]="Golbat.png";
+
+imageData[42][0]="Oddish.png";
+
+imageData[43][0]="Gloom.png";
+
+imageData[44][0]="Vileplume.png";
+
+imageData[45][0]="Paras.png";
+
+imageData[46][0]="Parasect.png";
+
+imageData[47][0]="Venonat.png";
+
+imageData[48][0]="Venomoth.png";
+
+imageData[49][0]="Diglett.png";
+
+imageData[50][0]="Dugtrio.png";
+
+imageData[51][0]="Meowth.png";
+
+imageData[52][0]="Persian.png";
+
+imageData[53][0]="Psyduck.png";
+
+imageData[54][0]="Golduck.png";
+
+imageData[55][0]="Mankey.png";
+
+imageData[56][0]="Primeape.png";
+
+imageData[57][0]="Growlithe.png";
+
+imageData[58][0]="Arcanine.png";
+
+imageData[59][0]="Poliwag.png";
+
+imageData[60][0]="Poliwhirl.png";
+
+imageData[61][0]="Poliwrath.png";
+
+imageData[62][0]="Abra.png";
+
+imageData[63][0]="Kadabra.png";
+
+imageData[64][0]="Alakazam.png";
+
+imageData[65][0]="Machop.png";
+
+imageData[66][0]="Machoke.png";
+
+imageData[67][0]="Machamp.png";
+
+imageData[68][0]="Bellsprout.png";
+
+imageData[69][0]="Weepinbell.png";
+
+imageData[70][0]="Victreebel.png";
+
+imageData[71][0]="Tentacool.png";
+
+imageData[72][0]="Tentacruel.png";
+
+imageData[73][0]="Geodude.png";
+
+imageData[74][0]="Graveler.png";
+
+imageData[75][0]="Golem.png";
+
+imageData[76][0]="Ponyta.png";
+
+imageData[77][0]="Rapidash.png";
+
+imageData[78][0]="Slowpoke.png";
+
+imageData[79][0]="Slowbro.png";
+
+imageData[80][0]="Magnemite.png";
+
+imageData[81][0]="Magneton.png";
+
+imageData[82][0]="Farfetch'd.png";
+
+imageData[83][0]="Doduo.png";
+
+imageData[84][0]="Dodrio.png";
+
+imageData[85][0]="Seel.png";
+
+imageData[86][0]="Dewgong.png";
+
+imageData[87][0]="Grimer.png";
+
+imageData[88][0]="Muk.png";
+
+imageData[89][0]="Shellder.png";
+
+imageData[90][0]="Cloyster.png";
+
+imageData[91][0]="Gastly.png";
+
+imageData[92][0]="Haunter.png";
+
+imageData[93][0]="Gengar.png";
+
+imageData[94][0]="Onix.png";
+
+imageData[95][0]="Drowzee.png";
+
+imageData[96][0]="Hypno.png";
+
+imageData[97][0]="Krabby.png";
+
+imageData[98][0]="Kingler.png";
+
+imageData[99][0]="Voltorb.png";
+
+imageData[100][0]="Electrode.png";
+
+imageData[101][0]="Exeggcute.png";
+
+imageData[102][0]="Exeggutor.png";
+
+imageData[103][0]="Cubone.png";
+
+imageData[104][0]="Marowak.png";
+
+imageData[105][0]="Hitmonlee.png";
+
+imageData[106][0]="Hitmonchan.png";
+
+imageData[107][0]="Lickitung.png";
+
+imageData[108][0]="Koffing.png";
+
+imageData[109][0]="Weezing.png";
+
+imageData[110][0]="Rhyhorn.png";
+
+imageData[111][0]="Rhydon.png";
+
+imageData[112][0]="Chansey.png";
+
+imageData[113][0]="Tangela.png";
+
+imageData[114][0]="Kangaskhan.png";
+
+imageData[115][0]="Horsea.png";
+
+imageData[116][0]="Seadra.png";
+
+imageData[117][0]="Goldeen.png";
+
+imageData[118][0]="Seaking.png";
+
+imageData[119][0]="Staryu.png";
+
+imageData[120][0]="Starmie.png";
+
+imageData[121][0]="Mr_Mime.png";
+
+imageData[122][0]="Scyther.png";
+
+imageData[123][0]="Jynx.png";
+
+imageData[124][0]="Electabuzz.png";
+
+imageData[125][0]="Magmar.png";
+
+imageData[126][0]="Pinsir.png";
+
+imageData[127][0]="Tauros.png";
+
+imageData[128][0]="Magikarp.png";
+
+imageData[129][0]="Gyarados.png";
+
+imageData[130][0]="Lapras.png";
+
+imageData[131][0]="Ditto.png";
+
+imageData[132][0]="Eevee.png";
+
+imageData[133][0]="Vaporeon.png";
+
+imageData[134][0]="Jolteon.png";
+
+imageData[135][0]="Flareon.png";
+
+imageData[136][0]="Porygon.png";
+
+imageData[137][0]="Omanyte.png";
+
+imageData[138][0]="Omastar.png";
+
+imageData[139][0]="Kabuto.png";
+
+imageData[140][0]="Kabutops.png";
+
+imageData[141][0]="Aerodactyl.png";
+
+imageData[142][0]="Snorlax.png";
+
+imageData[143][0]="Articuno.png";
+
+imageData[144][0]="Zapdos.png";
+
+imageData[145][0]="Moltres.png";
+
+imageData[146][0]="Dratini.png";
+
+imageData[147][0]="Dragonair.png";
+
+imageData[148][0]="Dragonite.png";
+
+imageData[149][0]="Mewtwo.png";
+
+imageData[150][0]="Mew.png";
+
+// Image title data
+
+imageData[0][1]="Bulbasaur, of type: grass, poison. Using Bulbasaur Candy. it can evolve into a Ivysaur";
+
+imageData[1][1]="Ivysaur, of type: grass, poison. Using Bulbasaur Candy. It will evolve into a Venusaur";
+
+imageData[2][1]="Venusaur, of type: grass, poison : highest evolution form";
+
+imageData[3][1]="Charmander, of type: fire, using Charmander Candy. It will evolve into a Charmeleon";
+
+imageData[4][1]="Charmeleon, of type: fire, using Charmander Candy. It will evolve into a Charizard";
+
+imageData[5][1]="Charizard, of type: fire, flying : highest evolution form";
+
+imageData[6][1]="Squirtle, of type: water, using Squirtle Candy. It will evolve into a Wartortle";
+
+imageData[7][1]="Wartortle, of type: water, using Squirtle Candy. It will evolve into a Blastoise";
+
+imageData[8][1]="Blastoise, of type: water, highest evolution form";
+
+imageData[9][1]="Caterpie, of type: bug, using Caterpie Candy. It will evolve into a Metapod";
+
+imageData[10][1]="Metapod, of type: bug, using Caterpie Candy. It will evolve into a Butterfree";
+
+imageData[11][1]="Butterfree, of type: bug, flying : highest evolution form";
+
+imageData[12][1]="Weedle, of type: bug,poison. using Weedle Candy. It will evolve into a Kakuna";
+
+imageData[13][1]="Kakuna, of type: bug,poison. using Weedle Candy. It will evolve into a Beedrill";
+
+imageData[14][1]="Beedrill, of type: bug,poison : highest evolution form";
+
+imageData[15][1]="Pidgey, of type: normal,flying. using Pidgey Candy. It will evolve into a Pidgeotto";
+
+imageData[16][1]="Pidgeotto, of type: normal,flying. using Pidgey Candy. It will evolve into a Pidgeot";
+
+imageData[17][1]="Pidgeot, of type: normal,flying : highest evolution form";
+
+imageData[18][1]="Rattata, of type: normal. using Rattata Candy. It will evolve into a Raticate";
+
+imageData[19][1]="Raticate, of type: normal : highest evolution form";
+
+imageData[20][1]="Spearow, of type: normal, flying. using Spearow Candy. It will evolve into a Fearow";
+
+imageData[21][1]="Fearow, of type: normal,flying : highest evolution form";
+
+imageData[22][1]="Ekans, of type:poison, using Ekans Candy. It will evolve into an Arbok";
+
+imageData[23][1]="Arbok, of type:poison : highest evolution form";
+
+imageData[24][1]="Pikachu, of type:electric. using Pikachu Candy. It will evolve into a Raichu";
+
+imageData[25][1]="Raichu, of type:electric : highest evolution form";
+
+imageData[26][1]="Sandshrew, of type:ground. using Sandshrew Candy. It will evolve into a Sandslash";
+
+imageData[27][1]="Sandslash, of type:ground : highest evolution form";
+
+imageData[28][1]="NidoranFemale, of type: poison. using Nidoranfemale Candy. It will evolve into a Nidorina";
+
+imageData[29][1]="Nidorina, of type:poison. using Nidoran female Candy. It will evolve into a Nidoqueen";
+
+imageData[30][1]="Nidoqueen, of type:poison,ground : highest evolution form";
+
+imageData[31][1]="NidoranMale, of type:poison, using Nidoran male Candy. It will evolve into a Nidorino";
+
+imageData[32][1]="Nidorino, of type:poison, using Nidoran male Candy. It will evolve into a Nidoking";
+
+imageData[33][1]="Nidoking, of type:poison,ground : highest evolution form";
+
+imageData[34][1]="Clefairy, of type:fairy. using Clefairy Candy. It will evolve into a Clefable";
+
+imageData[35][1]="Clefable, of type:fairy : highest evolution form";
+
+imageData[36][1]="Vulpix, of type:fire. using Vulpix Candy. It will evolve into a Ninetales";
+
+imageData[37][1]="Ninetales, of type:fire : highest evolution form";
+
+imageData[38][1]="Jigglypuff, of type:fairy,normal. using Jigglypuff Candy. It will evolve into a Wigglytuff";
+
+imageData[39][1]="Wigglytuff, of type:failry,normal : highest evolution form";
+
+imageData[40][1]="Zubat, of type:poison,flying. using Zubat Candy. It will evolve into a Golbat";
+
+imageData[41][1]="Golbat, of type:poison,flying : highest evolution form";
+
+imageData[42][1]="Oddish, of type:grass,poison. using Oddish Candy. It will evolve into a Gloom";
+
+imageData[43][1]="Gloom, of type:grass,poison. using Oddish Candy. It will evolve into a Vileplume";
+
+imageData[44][1]="Vileplume, of type:grass,poison:highest evolution form";
+
+imageData[45][1]="Paras, of type: bug,grass. using Paras Candy. It will evolve into a Parasect";
+
+imageData[46][1]="Parasect, of type:bug,grass:highest evolution form";
+
+imageData[47][1]="Venonat, of type:bug,poison. using Venonat Candy. It will evolve into a Venomoth";
+
+imageData[48][1]="Venomoth, of type:bug,poison:highest evolution form";
+
+imageData[49][1]="Diglett, of type:ground, using Diglett Candy. It will evolve into a Dugtrio";
+
+imageData[50][1]="Dugtrio, of type:ground, highest evolution form";
+
+imageData[51][1]="Meowth, of type:normal. using Meowth Candy. It will evolve into a Persian";
+
+imageData[52][1]="Persian, of type:normal:highest evolution form";
+
+imageData[53][1]="Psyduck, of type:water. using Psyduck Candy. It will evolve into a Golduck";
+
+imageData[54][1]="Golduck, of type:water. highest evolution form";
+
+imageData[55][1]="Mankey, of type:fighting. using Mankey Candy. It will evolve into a Primeape";
+
+imageData[56][1]="Primeape, of type:fighting highest evolution form";
+
+imageData[57][1]="Growlithe, of type:fire. using Growlithe Candy. It will evolve into a Arcanine";
+
+imageData[58][1]="Arcanine, of type:fire. highest evolution form";
+
+imageData[59][1]="Poliwag, of type:water. using Poliwag Candy. It will evolve into a Poliwhirl";
+
+imageData[60][1]="Poliwhirl, of type:water. using Poliwag Candy. It will evolve into a Poliwrath";
+
+imageData[61][1]="Poliwrath, of type:water,fighting. highest evolution form";
+
+imageData[62][1]="Abra, of type:psychic. using Abra Candy. It will evolve into a Kadabra";
+
+imageData[63][1]="Kadabra, of type:psychic. using Abra Candy. It will evolve into a Alakazam";
+
+imageData[64][1]="Alakazam, of type:psychic : highest evolution form";
+
+imageData[65][1]="Machop, of type:fighting. using Machop Candy. It will evolve into a Machoke";
+
+imageData[66][1]="Machoke, of type:fighting. using Machop Candy. It will evolve into a Machamp";
+
+imageData[67][1]="Machamp, of type:fightinh  : highest evolution form";
+
+imageData[68][1]="Bellsprout, of type:grass,poison, using Bellsprout Candy. It will evolve into a Weepinbel";
+
+imageData[69][1]="Weepinbell, of type:grass,poison. using 100 Bellsprout Candy. It will evolve into a Victreebel";
+
+imageData[70][1]="Victreebel,type:grass,poison : highest evolution form";
+
+imageData[71][1]="Tentacool, of type:water. using Tentacool Candy. It will evolve into a Tentacruel";
+
+imageData[72][1]="Tentacruel, of type:water:highest evolution form";
+
+imageData[73][1]="Geodude, of type:rock,ground. using Geodude Candy. It will evolve into a Graveler";
+
+imageData[74][1]="Graveler, of type:rock,ground. using Geodude Candy. It will evolve into a Golem";
+
+imageData[75][1]="Golem, of type:rock,ground :highest evolution form";
+
+imageData[76][1]="Ponyta, of type:fire. using Ponyta Candy. It will evolve into a Rapidash";
+
+imageData[77][1]="Rapidash, of type:fire. highest evolution form";
+
+imageData[78][1]="Slowpoke, of type:psychic,water. using Slowpoke Candy. It will evolve into a Slowbro";
+
+imageData[79][1]="Slowbro, of type:psychic,water. highest evolution form";
+
+imageData[80][1]="Magnemite, of type:electric,steel. using Magnemite Candy. It will evolve into a Magneton";
+
+imageData[81][1]="Magneton, of type:electric,steel : highest evolution form";
+
+imageData[82][1]="Farfetch'd, of type:normal,flying";
+
+imageData[83][1]="Doduo, of type:normal,flying. using Doduo Candy. It will evolve into a Dodrio";
+
+imageData[84][1]="Dodrio, of type:normal,flying : highest evolution form";
+
+imageData[85][1]="Seel, of type:water. using Seel Candy. It will evolve into a Dewgong";
+
+imageData[86][1]="Dewgong, of type:water : highest evolution form";
+
+imageData[87][1]="Grimer, of type:poison. using Grimer Candy. It will evolve into a Muk";
+
+imageData[88][1]="Muk, of type:poison: highest evolution form";
+
+imageData[89][1]="Shellder, of type:water. using Shellder Candy. It will evolve into a Cloyster";
+
+imageData[90][1]="Cloyster, of type:water : highest evolution form";
+
+imageData[91][1]="Gastly, of type:ghost,poison. using Gastly Candy. It will evolve into a Haunter";
+
+imageData[92][1]="Haunter, of type:ghost,poison. using Gastly Candy. It will evolve into a Gengar";
+
+imageData[93][1]="Gengar, of type:ghost,poison. highest evolution form";
+
+imageData[94][1]="Onix, of type: rock,ground";
+
+imageData[95][1]="Drowzee, of type:psychic. using Drowzee Candy. It will evolve into a Hypno";
+
+imageData[96][1]="Hypno, of type:psychic : highest evolution form";
+
+imageData[97][1]="Krabby, of type:water. using Krabby Candy. It will evolve into a Kingler";
+
+imageData[98][1]="Kingler, of type:water: highest evolution form";
+
+imageData[99][1]="Voltorb, of type:electric. using Voltorb Candy. It will evolve into a Electrode";
+
+imageData[100][1]="Electrode, of type:electric : highest evolution form";
+
+imageData[101][1]="Exeggcute, of type:grass,psychic. using Exeggcute Candy. It will evolve into a Exeggutor";
+
+imageData[102][1]="Exeggutor, of type:grass,psychic. highest evolution form";
+
+imageData[103][1]="Cubone, of type:ground. using Cubone Candy. It will evolve into a Marowak";
+
+imageData[104][1]="Marowak, of type:ground. highest evolution form";
+
+imageData[105][1]="Hitmonlee, of type:fighting";
+
+imageData[106][1]="Hitmonchan, of type:fighting";
+
+imageData[107][1]="Lickitung, of type:normal";
+
+imageData[108][1]="Koffing, of type:poison. using Koffing Candy. It will evolve into a Weezing";
+
+imageData[109][1]="Weezing, of type:poison : highest evolution form";
+
+imageData[110][1]="Rhyhorn, of type:ground. using Rhyhorn Candy. It will evolve into a Rhydon";
+
+imageData[111][1]="Rhydon, of type:ground : highest evolution form";
+
+imageData[112][1]="Chansey, of type:normal";
+
+imageData[113][1]="Tangela, of type:grass";
+
+imageData[114][1]="Kangaskhan, of type:normal";
+
+imageData[115][1]="Horsea, of type:water. using Horsea Candy. It will evolve into a Seadra";
+
+imageData[116][1]="Seadra, of type:water : highest evolution form";
+
+imageData[117][1]="Goldeen, of type:water. using Goldeen Candy. It will evolve into a Seaking";
+
+imageData[118][1]="Seaking, of type:water: highest evolution form";
+
+imageData[119][1]="Staryu, of type:water. using Staryu Candy. It will evolve into a Starmie";
+
+imageData[120][1]="Starmie, of type:water,psychic highest evolution form";
+
+imageData[121][1]="Mr_Mime, of type: psychic,fairy";
+
+imageData[122][1]="Scyther, of type:bug,flying";
+
+imageData[123][1]="Jynx, of type:ice,psychic";
+
+imageData[124][1]="Electabuzz, of type:electric";
+
+imageData[125][1]="Magmar, of type:fire";
+
+imageData[126][1]="Pinsir, of type:fire";
+
+imageData[127][1]="Tauros, of type:normal";
+
+imageData[128][1]="Magikarp, of type:water. using Magikarp Candy. It will evolve into a Gyarados";
+
+imageData[129][1]="Gyarados, of type:water,flying : highest evolution form";
+
+imageData[130][1]="Lapras, of type:water,ice";
+
+imageData[131][1]="Ditto, of type:normal";
+
+imageData[132][1]="Eevee, of type:normal. using Eevee Candy. It will evolve into a Vaporeon / Jolteon / Flareon";
+
+imageData[133][1]="Vaporeon, of type:water. highest evolution form";
+
+imageData[134][1]="Jolteon, of type:electric";
+
+imageData[135][1]="Flareon, of type:fire";
+
+imageData[136][1]="Porygon, of type:normal";
+
+imageData[137][1]="Omanyte, of type:rock,water. using Omanyte Candy. It will evolve into a Omastar";
+
+imageData[138][1]="Omastar, of type:rock,water. highest evolutionn form, of type:rock,water";
+
+imageData[139][1]="Kabuto, of type:rock;water. using Kabuto Candy. It will evolve into a Kabutops";
+
+imageData[140][1]="Kabutops, of type:rock;water. highest evolution form";
+
+imageData[141][1]="Aerodactyl, of type:rock,flying";
+
+imageData[142][1]="Snorlax, of type:normal";
+
+imageData[143][1]="Articuno, of type:ice,flying";
+
+imageData[144][1]="Zapdos, of type:electric,flying";
+
+imageData[145][1]="Moltres, of type:fire,flying";
+
+imageData[146][1]="Dratini, of type:dragon. using Dratini Candy. It will evolve into a Dragonair";
+
+imageData[147][1]="Dragonair, of type:dragon. using Dratini Candy. It will evolve into a Dragonite.";
+
+imageData[148][1]="Dragonite, of type:dragon. highest evolution form";
+
+imageData[149][1]="Mewtwo, of type:psychic";
+
+imageData[150][1]="Mew, of type:psychic";
+
+// Image description data
+
+imageData[0][2]="Pokedex number 1 Bulbasaur can be seen napping in bright sunlight. There is a seed on it's back. By soaking up the sun's rays, the seed grows progressively larger.";
+
+imageData[1][2]="Pokedex number 2 There is a bud on this Pokemon's back. To support its weight, Ivysaur's legs and trunk grow thick and strong. If it starts spending more time lying in the sunlight, it's a sign that the bud will bloom into a large flower soon";
+
+imageData[2][2]="Pokedex number 3 There is a large flower on Venusaur's back. The flower is said to take on vivid colors if it gets plenty of nutrition and sunlight. The flower's aroma soothes the emotions of people";
+
+imageData[3][2]="Pokedex number 4 The flame that burns at the tip of its tail is an indication of its emotions. The flame waves when Charmander is enjoying itself. If the Pokemon becomes enraged, the flame burns fiercely.";
+
+imageData[4][2]="Pokedex number 5 Charmeleon mercilessly destroys its foes using its sharp claws. If it encounters a strong foe, it turns aggressive. In this excited state, the flame at the tip of its tail flares with a bluish white color";
+
+imageData[5][2]="Pokedex number 6 Charizard flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself.";
+
+imageData[6][2]="Pokedex number 7 Squirtle's shell is not merely used for protection. The shell's rounded shape and the grooves on its surface help minimize resistance in water, enabling this Pokemon to swim at high speeds";
+
+imageData[7][2]="Pokedex number 8 Its tail is large and covered with a rich, thick fur. The tail becomes increasingly deeper in color as Wartortle ages. The scratches on its shell are evidence of this Pokemon's toughness as a battler";
+
+imageData[8][2]="Pokedex number 9 Blastoise has water spouts that protrude from its shell. The water spouts are very accurate. They can shoot bullets of water with enough accuracy to strike empty cans from a distance of over 160 feet";
+
+imageData[9][2]="Pokedex number 10 Caterpie has a voracious appetite. It can devour leaves bigger than its body right before your eyes. From its antenna, this Pokemon releases a terrifically strong odor";
+
+imageData[10][2]="Pokedex number 11 The shell covering this Pokemon's body is as hard as an iron slab. Metapod does not move very much. It stays still because it is preparing its soft innards for evolution inside the hard shell";
+
+imageData[11][2]="Pokedex number 12 Butterfree has a superior ability to search for delicious honey from flowers. It can even search out, extract, and carry honey from flowers that are blooming over six miles from its nest";
+
+imageData[12][2]="Pokedex number 13 Weedle has an extremely acute sense of smell. It is capable of distinguishing its favorite kinds of leaves from those it dislikes just by sniffing with its big red proboscis (nose)";
+
+imageData[13][2]="Pokedex number 14 Kakuna remains virtually immobile as it clings to a tree. However, on the inside, it is extremely busy as it prepares for its coming evolution. This is evident from how hot the shell becomes to the touch";
+
+imageData[14][2]="Pokedex number 15 Beedrill is extremely territorial. No one should ever approach its nest-this is for their own safety. If angered, they will attack in a furious swarm";
+
+imageData[15][2]="Pokedex number 16 Pidgey has an extremely sharp sense of direction. it is capable of unerringly returning home to its nest, however far it may be removed from its familiar surroundings";
+
+imageData[16][2]="Pokedex number 17 Pidgeotto claims a large area as its own territory. This Pokemon flies around, patrolling its living space. If its territory is violated, it shows no mercy in thoroughly punishing the foe with its sharp claws";
+
+imageData[17][2]="Pokedex number 18 This Pokemon has a dazzling plumage of beautifully glossy feathers. Many Trainers are captivated by the striking beauty of the feathers on its head, compelling them to choose Pidgeot as their Pokemon";
+
+imageData[18][2]="Pokedex number 19 Rattata is cautious to the extreme. Even while it is asleep, it constantly listens by moving its ears around. It is not picky about where it lives-it will make its nest anywhere";
+
+imageData[19][2]="Pokedex number 20 Raticate's sturdy fangs grow steadily. To keep them ground down, it gnaws on rocks and logs. It may even chew on the walls of houses.";
+
+imageData[20][2]="Pokedex number 21 Spearow has a very loud cry that can be heard over half a mile away. If its high, keening cry is heard echoing all around, it is a sign that they are warning each other of danger.";
+
+imageData[21][2]="Pokedex number 22 Fearow is recognized by its long neck and elongated beak. They are conveniently shaped for catching prey in soil or water. It deftly moves its long and skinny beak to pluck prey";
+
+imageData[22][2]="Pokedex number 23 Ekans curls itself up in a spiral while it rests. Assuming this position allows it to quickly respond to a threat from any direction with a glare from its upraised head";
+
+imageData[23][2]="Pokedex number 24 This Pokemon is terrifically strong in order to constrict things with its body. It can even flatten steel oil drums. Once Arbok wraps its body around its foe, escaping its crushing embrace is impossible";
+
+imageData[24][2]="Pokedex number 25 Whenever Pikachu comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it's evidence that this Pokemon mistook the intensity of its charge";
+
+imageData[25][2]="Pokedex number 26 If the electrical sacs become excessively charged, Raichu plants its tail in the ground and discharges. Scorched patches of ground will be found near this Pokemon's nest";
+
+imageData[26][2]="Pokedex number 27 Sandshrew's body is configured to absorb water without waste, enabling it to survive in an arid desert. This Pokemon curls up to protect itself from its enemies";
+
+imageData[27][2]="Pokedex number 28 Sandslash's body is covered by tough spikes, which are hardened sections of its hide. Once a year, the old spikes fall out, to be replaced with new spikes that grow out from beneath the old ones";
+
+imageData[28][2]="Pokedex number 29 Nidoran female has barbs that secrete a powerful poison. They are thought to have developed as protection for this small-bodied Pokemon. When enraged, it releases a horrible toxin from it's horn";
+
+imageData[29][2]="Pokedex number 30 When Nidorina are with their friends or family, they keep their barbs tucked away to prevent hurting each other. This Pokemon appears to become nervous if separated from the others";
+
+imageData[30][2]="Pokedex number 31 Nidoqueen's body is encased in extremely hard scales. It is adept at sending foes flying with harsh tackles. This Pokemon is at its strongest when it is defending its young";
+
+imageData[31][2]="Pokedex number 32 Nidoran male has developed muscles for moving its ears. Thanks to them, the ears can be freely moved in any direction. Even the slightest sound does not escape this Pokemon's notice";
+
+imageData[32][2]="Pokedex number 33 Nidorino has a horn that is harder than a diamond. If it senses hostile presence, all the barbs on its back bristle up at once, and it challenges the foe with all its might";
+
+imageData[33][2]="Pokedex number 34 Nidoking's thick tail packs enormously destructive power. With one swing, it can topple a metal transmission tower. Once this Pokemon goes on a rampage,there is no stopping it";
+
+imageData[34][2]="Pokedex number 35 On every night of a full moon, groups of this Pokemon come out to play. When dawn arrives, the tired Clefairy return to their quiet mountain retreats and go to sleep nestled up next to each other";
+
+imageData[35][2]="Pokedex number 36 Clefable moves by skipping lightly as if it were flying using its wings. Its bouncy step lets it even walk on water. It is known to take strolls on lakes on quiet, moonlit nights";
+
+imageData[36][2]="Pokedex number 37 At the time of its birth, Vulpix has one white tail. The tail separates into six if this Pokemon receives plenty of love from its Trainer. The six tails become magnificently curled";
+
+imageData[37][2]="Pokedex number 38 Ninetales casts a sinister light from its bright red eyes to gain total control over its foe's mind. This Pokemon is said to live for a thousand years";
+
+imageData[38][2]="Pokedex number 39 Jigglypuff's vocal cords can freely adjust the wavelength of its voice. This Pokemon uses this ability to sing at precisely the right wavelength to make its foes most drowsy";
+
+imageData[39][2]="Pokedex number 40 Wigglytuff has large, saucerlike eyes. The surfaces of its eyes are always covered with a thin layer of tears. If any dust gets in this Pokemon's eyes, it is quickly washed away";
+
+imageData[40][2]="Pokedex number 41 Zubat remains quietly unmoving in a dark spot during the bright daylight hours. It does so because prolonged exposure to the sun causes its body to become slightly burned";
+
+imageData[41][2]="Pokedex number 42 Golbat loves to drink the blood of living things. It is particularly active in the pitch black of night. This Pokemon flits around in the night skies, seeking fresh blood";
+
+imageData[42][2]="Pokedex number 43 During the daytime, Oddish buries itself in soil to absorb nutrients from the ground using its entire body. The more fertile the soil, the glossier its leaves become.";
+
+imageData[43][2]="Pokedex number 44 Gloom releases a foul fragrance from the pistil of its flower. When faced with danger, the stench worsens. If this Pokemon is feeling calm and secure, it does not release its usual stinky aroma";
+
+imageData[44][2]="Pokedex number 45 Vileplume's toxic pollen triggers atrocious allergy attacks. That's why it is advisable never to approach any attractive flowers in a jungle, however pretty they may be";
+
+imageData[45][2]="Pokedex number 46 Paras has parasitic mushrooms growing on its back called tochukaso. They grow large by drawing nutrients from this Bug Pokemon host. They are highly valued as a medicine for extending life";
+
+imageData[46][2]="Pokedex number 47 Parasect is known to infest large trees en masse and drain nutrients from the lower trunk and roots. When an infested tree dies, they move onto another tree all at once";
+
+imageData[47][2]="Pokedex number 48 Venonat is said to have evolved with a coat of thin, stiff hair that covers its entire body for protection. It possesses large eyes that never fail to spot even minuscule prey";
+
+imageData[48][2]="Pokedex number 49 Venomoth is nocturnal - it is a Pokemon that only becomes active at night. Its favorite prey are small insects that gather around streetlights, attracted by the light in the darkness";
+
+imageData[49][2]="Pokedex number 50 Diglett are raised in most farms. The reason is simple-wherever this Pokemon burrows, the soil is left perfectly tilled for planting crops. This soil is made ideal for growing delicious vegetables";
+
+imageData[50][2]="Pokedex number 51 Dugtrio are actually triplets that emerged from one body. As a result, each triplet thinks exactly like the other two triplets. They work cooperatively to burrow endlessly";
+
+imageData[51][2]="Pokedex number 52 Meowth withdraws its sharp claws into its paws to slinkily sneak about without making any incriminating footsteps. For some reason, this Pokemon loves shiny coins that glitter with light";
+
+imageData[52][2]="Pokedex number 53 Persian has six bold whiskers that give it a look of toughness. The whiskers sense air movements to determine what is in the Pokemon's surrounding vicinity. It becomes docile if grabbed by the whiskers";
+
+imageData[53][2]="Pokedex number 54 Psyduck uses a mysterious power. When it does so, this Pokemon generates brainwaves that are supposedly only seen in sleepers. This discovery spurred a controversy amoung scholars";
+
+imageData[54][2]="Pokedex number 55 The webbed flippers on its forelegs and hind legs and the streamlined body of Golduck give it frightening speed. This Pokemon is definitely much faster than even the most athletic swimmer";
+
+imageData[55][2]="Pokedex number 56 When Mankey starts shaking and its nasal breathing turns rough, it's a sure sign that it is becoming angry. However, because it goes into a towering rage almost instantly, it is impossible for anyone to flee its wrath";
+
+imageData[56][2]="Pokedex number 57 When Primape becomes furious, its blood circulation is boosted. In turn, its muscles are made even stronger. However, it also becomes much less intelligent at the same time";
+
+imageData[57][2]="Pokedex number 58 Growlithe has a superb sense of smell. Once it smells anything, this Pokemon won't forget the scent, no matter what. It uses its advance olfactory sense to determine the emotions of other living things";
+
+imageData[58][2]="Pokedex number 59 Arcanine is known for its high speed. It is said to be capable of running over 6,200 miles in a single day and night. The fire that blazes wildly within this Pokemon's body is its source of power";
+
+imageData[59][2]="Pokedex number 60 Poliwag has very thin skin. It is possible to see the Pokemon's spiral innards right through the skin. Despite its thinness, however, the skin is also very flexible. Even sharp fangs bounce right off it";
+
+imageData[60][2]="Pokedex number 61 The surface of Poliwhirl's body is always wet and slick with a slimy fluid. Because of this slippery covering, it can easily slip and slide out of the clutches of any enemy in battle";
+
+imageData[61][2]="Pokedex number 62 Poliwrath's highly developed, brawny muscles never grow fatigued, however much it exercises. It is so tirelessly strong, this Pokemon can swim back and forth across the ocean without effort";
+
+imageData[62][2]="Pokedex number 63 Abra sleeps for eighteen hours a day. However, it can sense the presence of foes even while it is sleeping. In such a situation, this Pokemon immediately teleports to safety";
+
+imageData[63][2]="Pokedex number 64 Kadabra emits a peculiar alpha wave if it develops a headache. Only those people with a particularly strong psyche can hope to become a Trainer of this Pokemon";
+
+imageData[64][2]="Pokedex number 65 Alakazam's brain continually grows, making its head far too heavy to support with its neck. This Pokemon holds its head up using its psychokinetic power instead";
+
+imageData[65][2]="Pokedex number 66 Machop's muscles are special-they never get sore no matter how much they are used in exercise. This Pokemon has sufficient power to hurl a hundred adult humans";
+
+imageData[66][2]="Pokedex number 67 Machoke's thoroughly toned muscles pssess the hardness of steel. This Pokemon has so much strength, it can easily hold aloft a sumo wrestler on just one finger";
+
+imageData[67][2]="Pokedex number 68 Machamp has the power to hurl anything aside. However, trying to do any work requiring care and dexterity causes its arms to get tangled. This Pokemon tends to leap into action before it thinks";
+
+imageData[68][2]="Pokedex number 69 Bellsprout's thin and flexible body lets it bend and sway to avoid any attack, however strong it may be. From its mouth, this Pokemon spits a corrosive fluid that melts even iron";
+
+imageData[69][2]="Pokedex number 70 Weepinbell has a large hook on its rear end. At night, the Pokemon hooks on to a tree branch and goes to sleep. It it moves around in its sleep, it may wake up to find itself on the ground";
+
+imageData[70][2]="Pokedex number 71 Victreebel has a long vine that extends from its head. This vine is waved and flicked about as if it were an animal to attract prey. When an unsuspecting prey draws near, this Pokemon swallows it whole";
+
+imageData[71][2]="Pokedex number 72 Tentacool's body is largely composed of water. If it is removed from the sea, it dries up like parchment. If this Pokemon happens to become dehydrated, put it back into the sea";
+
+imageData[72][2]="Pokedex number 73 Tentacruel has large red orbs on its head. The orbs glow before lashing the vicinity with a harsh ultrasonic blast. This Pokemon's outburst creates rough waves around it";
+
+imageData[73][2]="Pokedex number 74 The longer a Geodude lives, the more its edges are chipped an worn away., making it more rounded in appearance. However, this Pokemon's heart will remain hard, craggy and rough always";
+
+imageData[74][2]="Pokedex number 75 Graveler grow by feeding on rocks. Apparently, it prefers to eat rocks that are covered in moss. This Pokemon eats its way through a ton of rocks on a dailt basis";
+
+imageData[75][2]="Pokedex number 76 Golem live up on mountains. If there is a large earthquake, these Pokemon will come rolling down off the mountains en masse to the foothills below";
+
+imageData[76][2]="Pokedex number 77 Ponyta is very weak at birth. It can barely stand up. This Pokemon becomes stronger by stumbling and falling to keep up with its parent";
+
+imageData[77][2]="Pokedex number 78 Rapidash usually can be seen casually cantering in the fields and plains. However, when this Pokemon turns serious, its fiery manes flare and blaze as it gallops its way up to 150 mph";
+
+imageData[78][2]="Pokedex number 79 Slowpoke uses its tail to catch prey by dipping it in water at the side of a river. However, this Pokemon often forgets what it's doing and often spends entire days just loafing at water's edge";
+
+imageData[79][2]="Pokedex number 80 Slowbro's tail has a Shellder firmly attached with a bite. As a result, the tail can't be used for fishing anymore. This causes Slowbro to grudgingly swim and catch prey instead.";
+
+imageData[80][2]="Pokedex number 81 Magnemite attaches itself to power lines to feed on electricity. If your house has a power outage, check your circuit breakers. You may find a large number of this Pokemon clinging to the breaker box";
+
+imageData[81][2]="Pokedex number 82 Magneton emits a powerful magnetic force that is fatal to mechanical devices. As a result, large cities sound sirens to warn citizens of large-scale outbreaks of this Pokemon";
+
+imageData[82][2]="Pokedex number 83 Farfetch'd is always seen with a stalk from a plant of some sort. Apparently, there are good stalks and bad stalks. This Pokemon has been known to fight with others over stalks";
+
+imageData[83][2]="Pokedex number 84 Doduo's two heads never sleep at the same time. Its two heads take turns sleeping, so one head can always keep watch for enemies while the other one sleeps";
+
+imageData[84][2]="Pokedex number 85 Watch out if Dodrio's three heads are looking in three separate directions. It's a sure sign that it is on its guard. Don't go near this Pokemon if it's being wary-it may decide to peck you";
+
+imageData[85][2]="Pokedex number 86 Seel hunts for prey in the frigid sea underneath sheets of ice. When it needs to breathe, it punches a hole through the ice with the sharply protuding section of its head";
+
+imageData[86][2]="Pokedex number 87 Dewgong loves to snooze on bitterly cold ice. The sight of this Pokemon sleeping on a glacier was mistakenly thought to be a mermaid by a mariner long ago";
+
+imageData[87][2]="Pokedex number 88 Grimer's sludgy and rubbery body can be forced through any opening, however small it may be. This Pokemon enters sewer pipes to drink filthy wastewater";
+
+imageData[88][2]="Pokedex number 89 From Muk's body seeps a foul fluid that gives off a nose-bendingly horrible stench. Just one drop of this Pokemon's body fluid can turn a pool stagnant and rancid";
+
+imageData[89][2]="Pokedex number 90 At night, this Pokemon uses its broad tongue to burrow a hole in the seafloor sand and the sleep in it. While it is sleeping, Shelldar closes its shell, but leaves its tongue hanging out";
+
+imageData[90][2]="Pokedex number 91 Cloyster is capable of swimming in the sea. It does so by swallowing water, then jetting it out toward the rear. This Pokemon shoots spikes from its shell using the same system";
+
+imageData[91][2]="Pokedex number 92 Gastly is largely composed of gaseous matter. When exposed to a strong wind, the gaseous body quickly dwindles away. Groups of the Pokemon cluster under the eaves of houses to escape the ravages of wind";
+
+imageData[92][2]="Pokedex number 93 Haunter is a dangerous Pokemon. If one beckons you while floating in darkness, you must never approach it. This Pokemon will try to lick you with its tongue and steal your life away";
+
+imageData[93][2]="Pokedex number 94 Sometimes, on a dark night, your shadow thrown by a streetlight will suddenly and startlingly overtake you. It is actually a Gengar running past you, pretending to be your shadow";
+
+imageData[94][2]="Pokedex number 95 Onix has a magnet in its brain. It acts as a compass so that this Pokemon does not lose direction while it is tunneling. As it grows older, its body becomes increasingly rounder and smoother";
+
+imageData[95][2]="Pokedex number 96 If your nose becomes itchy while you are sleeping, it's a sure sign that one of these Pokemon is standing above your pillow and trying to eat your dream through your nostrils";
+
+imageData[96][2]="Pokedex number 97 Hypno holds a pendulum in its hand. The arching movement and glitter of the pendulum lull the foe into a deep state of hypnosis. While this Pokéon searches for prey, it polishes the pendulum";
+
+imageData[97][2]="Pokedex number 98 Krabby live on beaches, burrowed inside holes dug into the sand. On sandy beaches with little in the way of food, these Pokemon can be seen squabbling with each other over territory.";
+
+imageData[98][2]="Pokedex number 99 Kingler has an enormous, oversized claw. It waves this huge claw in the air to communicate with others. However, because the claw is so heavy, the Pokemon quickly tires";
+
+imageData[99][2]="Pokedex number 100 Voltorb was first sighted at a company that manufactures Poke Balls. The link between that sighting and the fact that this Pokemon looks very similar to a Poke Ball remains a mystery.";
+
+imageData[100][2]="Pokedex number 101 Electrode eats electricity in the atmosphere. On days when lightning strikes, you can see this Pokemon exploding all over the place from eating too much electricity";
+
+imageData[101][2]="Pokedex number 102 This Pokemon consists of six eggs that form a closely knit cluster. The six eggs attract each other and spin around. When cracks increasingly appear on the eggs, Exeggcute is close to evolution";
+
+imageData[102][2]="Pokedex number 103 Exeggutor originally came from the tropics. Its heads steadily grow larger from exposure to strong sunlight. It is said that when the heads fall off, they group together to form Exeggcute";
+
+imageData[103][2]="Pokedex number 104 Cubone pines for the mother it will never see again. Seeing a likeness of its mother in the full moon, it cries. The stains on the skull the Pokemon wears are made by the tears it sheds";
+
+imageData[104][2]="Pokedex number 105 Marowak is the evolved form of a Cubone that has overcome its sadness at the loss of its mother and grown tough. This Pokemon's tempered and hardened spirit is not easily broken";
+
+imageData[105][2]="Pokedex number 106 Hitmonlee's legs freely contract and stretch. Using these springlike legs, it bowls over foes with devastating kicks. After battle, it rubs down its legs and loosens the muscles to overcome fatigue";
+
+imageData[106][2]="Pokedex number 107 Hitmonchan is said to possess the spirit of a boxer who had been working toward a world championship. This Pokemon has an indomitable spirit and will never give up in the face of adversity";
+
+imageData[107][2]="Pokedex number 108 Whenever Lickitung comes across something new, it will unfailingly give it a lick. It does so because it memorizes things by texture and by taste. It is somewhat put off by sour things";
+
+imageData[108][2]="Pokedex number 109 If Koffing becomes agitated, it raises the toxicity of its internal gases and jets them out from all over its body. This Pokemon may also overinflate its round body, then explode";
+
+imageData[109][2]="Pokedex number 110 Weezing loves the gases given off by rotted kitchen garbage. This Pokemon will find a dirty, unkempt house and make it its home. At night, when the people in the house are asleep, it will go through the trash";
+
+imageData[110][2]="Pokedex number 111 Rhyhorn runs in a straight line, smashing everything in its path. It is not bothered even if it rushes headlong into a block of steel. This Pokemon may feel some pain from the collision the next day, however";
+
+imageData[111][2]="Pokedex number 112 Rhydon's horn can crush even uncut diamonds. One sweeping blow of its tail can topple a building. This Pokemon's hide is extremely tough. Even direct cannon hits don't leave a scratch";
+
+imageData[112][2]="Pokedex number 113 Chansey lays nutritionally excellent eggs on an everyday basis. The eggs are so delicious, they are easily and eagerly devoured by even those people who have lost their apetite";
+
+imageData[113][2]="Pokedex number 114 Tangela's vines snap off easily if they are grabbed. This happens without pain, allowing it to make a quick getaway. The lost vines are replaced by newly grown vines the very next day";
+
+imageData[114][2]="Pokedex number 115 If you come across a young Kangaskhan playing by itself, you must never disturb it or attempt to catch it. The baby Pokemon's parent is sure to be in the area, and it will become violently enraged at you";
+
+imageData[115][2]="Pokedex number 116 Horsea eats small insects and moss off of rocks. If the ocean current turns fast, this Pokemon anchors itself by wrapping its tail around rocks or coral to prevent being washed away";
+
+imageData[116][2]="Pokedex number 117 Seadra sleeps after wriggling itself between the branches of coral. Those trying to harvest coral are occasionally stung by this Pokemon's poison barbs if they fail to notice it";
+
+imageData[117][2]="Pokedex number 118 Goldeen is a very beautiful Pokemon with fins that billow elegantly in water. However, don't let your guard down around this Pokemon - it could ram you powerfully with its horn";
+
+imageData[118][2]="Pokedex number 119 In the autumn, Seaking males can be seen performing courtship dances in riverbeds to woo females. During this season, this Pokemon's body coloration is at its most beautiful.";
+
+imageData[119][2]="Pokedex number 120 Staryu's center section has an organ called the core that shines bright red. If you go to a beach towards the end of summer, the glowing cores of these Pokemon look like the stars in the sky";
+
+imageData[120][2]="Pokedex number 121 Starmie's center section—the core—glows brightly in seven colors. Because of its luminous nature, this Pokemon has been given the nickname “the gem of the sea";
+
+imageData[121][2]="Pokedex number 122 Mr_Mime is a master of pantomime. Its gestures and motions convince watchers that something unseeable actually exists. Once the watchers are convinced, the unseeable thing exists as if it were real";
+
+imageData[122][2]="Pokedex number 123 Scyther is blindingly fast. Its blazing speed enhances the effectiveness of the twin scythes on its forearms. This Pokemon's scythes are so effective, they can slice through thick logs in one wicked stroke";
+
+imageData[123][2]="Pokedex number 124 Jynx walks rhythmically, swaying and shaking its hips as if it were dancing. Its motions are so bouncingly alluring, people seeing it are compelled to shake their hips without giving any thought to what they are doing";
+
+imageData[124][2]="Pokedex number 125 When a storm arrives, gangs of this Pokemon compete with each other to scale heights that are likely to be stricken by lightning bolts. Some towns use Electabuzz in place of lightning rods";
+
+imageData[125][2]="Pokedex number 126 In battle, Magmar blows out intensely hot flames from all over its body to intimidate its opponent. This Pokemon's fiery bursts create heat waves that ignite grass and trees in its surroundings";
+
+imageData[126][2]="Pokedex number 127 Pinsir is astoundingly strong. It can grip a foe weighing twice its weight in its horns and easily lift it. This Pokemon's movements turn sluggish in cold places";
+
+imageData[127][2]="Pokedex number 128 This Pokemon is not satisfied unless it is rampaging at all times. If there is no opponent for Tauros to battle it will charge at thick trees and knock them down to calm itself";
+
+imageData[128][2]="Pokedex number 129 Magikarp is a pathetic excuse for a Pokemon that is only capable of flopping and splashing. This behavior prompted scientists to undertake research into it";
+
+imageData[129][2]="Pokedex number 130 When Magikarp evolves into Gyarados, its brain cells undergo a structural transformation. It is said that this transformation is to blame for this Pokemon's wildly violent nature";
+
+imageData[130][2]="Pokedex number 131 People have driven Lapras almost to the point of extinction. In the evenings, this Pokemon is said to sing plaintively as it seeks what few others of its kind still remain";
+
+imageData[131][2]="Pokedex number 132 Ditto rearranges its cell structure to transform itself into other shapes. However, if it tries to transform itself into something by relying on its memory, this Pokemon manages to get details wrong";
+
+imageData[132][2]="Pokedex number 133 Eevee has an unstable genetic makeup that suddenly mutates due to the environment in which it lives. Radiation from various stones causes this Pokemon to evolve";
+
+imageData[133][2]="Pokedex number 134 Vaporeon underwent a spontaneous mutation and grew fins and gills that allow it to live underwater. This Pokemon has the ability to freely control water";
+
+imageData[134][2]="Pokedex number 135 Jolteon's cells generate a low level of electricity. This power is amplified by the static electricity of its fur, enabling the Pokemon to drop thunderbolts. The bristling fur is made of electrically charged needles";
+
+imageData[135][2]="Pokedex number 136 Flareon's fluffy fur has a functional purpose-it releases heat into the air so that its body does not get excessively hot. This Pokemon's body temperature can rise to a maximum of 1,650 degrees Fahrenheit";
+
+imageData[136][2]="Pokedex number 137 Porygon is capable of reverting itself entirely back to program data and entering cyberspace. This Pokemon is copy protected so it cannot be duplicated by copying";
+
+imageData[137][2]="Pokedex number 138 Omanyte is one of the ancient and long-since-extinct Pokemon that have been regenerated from fossils by people. If attacked by an enemy, it withdraws itself inside its hard shell";
+
+imageData[138][2]="Pokedex number 139 Omastar uses its tentacles to capture its prey. It is believed to have become extinct because its shell grew too large and heavy, causing its movements to become too slow and ponderous";
+
+imageData[139][2]="Pokedex number 140 Kabuto is a Pokemon that has been regenerated from a fossil. However, in extremely rare cases, living examples have been discovered. The Pokemon has not changed at all for 300 million years";
+
+imageData[140][2]="Pokedex number 141 Kabutops swam underwater to hunt for its prey in ancient times. The Pokemon was apparently evolving from being a water dweller to living on land as evident from the beginnings of change in its gills and legs";
+
+imageData[141][2]="Pokedex number 142 Aerodactyl is a Pokemon from the age of dinosaurs. It was regenerated from genetic material extracted from amber. It is imagined to have been the king of the skies in ancient times.";
+
+imageData[142][2]="Pokedex number 143 Snorlax's typical day consists of nothing more than eating and sleeping. It is such a docile Pokemon that there are children who use its expansive belly as a place to play";
+
+imageData[143][2]="Pokedex number 144 Articuno is a legendary bird Pokemon that can control ice. The flapping of its wings chills the air. As a result, it is said that when this Pokemon flies, snow will fall";
+
+imageData[144][2]="Pokedex number 145 Zapdos is a legendary bird Pokemon that has the ability to control electricity. It usually lives in thunderclouds. The Pokemon gains power if it is stricken by lightning bolts";
+
+imageData[145][2]="Pokedex number 146 Moltres is a legendary bird Pokemon that has the ability to control fire. If this Pokemon is injured, it is said to dip its body in the molten magma of a volcano to burn and heal itself";
+
+imageData[146][2]="Pokedex number 147 Dratini continually molts and sloughs off its old skin. It does so because the life energy within its body steadily builds to reach uncontrollable levels";
+
+imageData[147][2]="Pokedex number 148 Dragonair stores an enormous amount of energy inside its body. It is said to alter weather conditions in its vicinity by discharging energy from the crystals on its neck and tail";
+
+imageData[148][2]="Pokedex number 149 Dragonite is capable of circling the globe in just 16 hours. It is a kindhearted Pokemon that leads lost and foundering ships in a storm to the safety of land";
+
+imageData[149][2]="Pokedex number 150 Mewtwo is a Pokemon that was created by genetic manipulation. However, even though the scientific power of humans created this Pokemon's body, they failed to endow Mewtwo with a compassionate heart.";
+
+imageData[150][2]="Pokedex number 151 Mew is said to possess the genetic composition of all Pokemon. It is capable of making itself invisible at will, so it entirely avoids notice even if it approaches people";
+
+// Our index, boundry and scroll tracking variables
+
+var imageIndexFirst = 0;
+
+var imageIndexLast = 3;
+
+var continueScroll = 0;
+
+var maxIndex = 150;
+
+var minIndex = 0;
+
+
+// This function creates our two dimensional array
+
+function createTwoDimensionalArray(arraySize) {
+
+for (i = 0; i < imageData.length; ++ i)
+
+imageData[i] = new Array(arraySize);
+
+}
+
+
+// This function preloads the thumbnail images
+
+function preloadThumbnails() {
+
+imageObject = new Image();
+
+for (i = 0; i < imageData.length; ++ i)
+
+imageObject.src = imageData[i][0];
+
+}
+
+
+
+// This function changes the text of a table cell
+
+function changeCellText(cellId,myCellData){
+
+document.getElementById(cellId).innerHTML = myCellData;
+
+}
+
+
+// This function changes the images
+
+function changeImage(ImageToChange,MyimageData){
+
+document.getElementById(ImageToChange).setAttribute('src',"pokimages/"+MyimageData)
+
+}
+
+
+// This function changes the image alternate text
+
+function changeImageAlt(ImageToChange,imageData){
+
+document.getElementById(ImageToChange).setAttribute('alt',imageData)
+
+}
+
+
+// This function changes the image alternate text
+
+function changeImageTitle(ImageToChange,imageData){
+
+document.getElementById(ImageToChange).setAttribute('title',imageData)
+
+}
+
+
+// This function changes the image onmouseover
+
+function changeImageOnMouseOver(ImageToChange,imageIndex){
+
+document.getElementById(ImageToChange).setAttribute('onmouseover','handleThumbOnMouseOver(' + imageIndex + ');')
+
+}
+
+
+// This function hanles calling on change function
+
+// for a thumbnail onmouseover event
+
+function handleThumbOnMouseOver(imageIndex){
+
+changeImage('imageLarge',imageData[imageIndex][0]);
+
+changeCellText('imageTitleCell',imageData[imageIndex][1]);
+
+changeCellText('imageDescriptionCell',imageData[imageIndex][2]);
+
+changeImageAlt('imageLarge',imageData[imageIndex][1] + ' - ' + imageData[imageIndex][2]);
+
+changeImageTitle('imageLarge',imageData[imageIndex][1] + ' - ' + imageData[imageIndex][2]);
+
+}
+
+
+// This function handles the scrolling in both directions
+
+function scrollImages(scrollDirection) {
+
+// We need a variable for holding our working index value
+
+var currentIndex;
+
+// Determine which direction to scroll - default is down (left)
+
+if (scrollDirection == 'up')
+
+{
+
+// Only do work if we are not to the last image
+
+if (imageIndexLast != maxIndex)
+
+{
+
+// We set the color to black for both before we begin
+
+// If we reach the end during the process we'll change the "button" color to silver
+
+document.getElementById('scrollPreviousCell').setAttribute('style','color: Black')
+
+document.getElementById('scrollNextCell').setAttribute('style','color: Black')
+
+// Move our tracking indexes up one
+
+imageIndexLast = imageIndexLast + 1;
+
+imageIndexFirst = imageIndexFirst + 1;
+
+//  Change next "button" to silver if we are at the end
+
+if (imageIndexLast == maxIndex)
+
+{
+
+document.getElementById('scrollNextCell').setAttribute('style','color: Silver')
+
+}
+
+// Changescrollbar images in a set delay sequence to give a pseudo-animated effect
+
+currentIndex = imageIndexLast;
+
+changeImage('scrollThumb4',imageData[currentIndex][0]);
+
+changeImageOnMouseOver('scrollThumb4',currentIndex);
+
+currentIndex = imageIndexLast - 1;
+
+setTimeout("changeImage('scrollThumb3',imageData[" + currentIndex + "][0])",25);
+
+setTimeout("changeImageOnMouseOver('scrollThumb3'," + currentIndex + ")",25);
+
+currentIndex = imageIndexLast - 2;
+
+setTimeout("changeImage('scrollThumb2',imageData[" + currentIndex + "][0])",50);
+
+setTimeout("changeImageOnMouseOver('scrollThumb2'," + currentIndex + ")",50);
+
+currentIndex = imageIndexLast - 3;
+
+setTimeout("changeImage('scrollThumb1',imageData[" + currentIndex + "][0])",75);
+
+setTimeout("changeImageOnMouseOver('scrollThumb1'," + currentIndex + ")",75);
+
+// Wait and check to see if user is still hovering over button
+
+// This pause gives the user a chance to move away from the button and stop scrolling
+
+setTimeout("scrollAgain('" + scrollDirection + "')",1000);
+
+}
+
+}
+
+else
+
+{
+
+// Only do work if we are not to the first image
+
+if (imageIndexFirst != minIndex)
+
+{
+
+// We set the color to black for both before we begin
+
+// If we reach the end during the process we'll change the "button" color to silver
+
+document.getElementById('scrollPreviousCell').setAttribute('style','color: Black')
+
+document.getElementById('scrollNextCell').setAttribute('style','color: Black')
+
+// Move our tracking indexes down one
+
+imageIndexLast = imageIndexLast - 1;
+
+imageIndexFirst = imageIndexFirst - 1;
+
+//  Change previous "button" to silver if we are at the beginning
+
+if (imageIndexFirst == minIndex)
+
+{
+
+document.getElementById('scrollPreviousCell').setAttribute('style','color: Silver')
+
+}
+
+// Change scrollbar images in a set delay sequence to give a pseudo-animated effect
+
+currentIndex = imageIndexFirst;
+
+changeImage('scrollThumb1',imageData[currentIndex][0]);
+
+changeImageOnMouseOver('scrollThumb1',currentIndex);
+
+currentIndex = imageIndexFirst + 1;
+
+setTimeout("changeImage('scrollThumb2',imageData[" + currentIndex + "][0])",25);
+
+setTimeout("changeImageOnMouseOver('scrollThumb2'," + currentIndex + ")",25);
+
+currentIndex = imageIndexFirst + 2;
+
+setTimeout("changeImage('scrollThumb3',imageData[" + currentIndex + "][0])",50);
+
+setTimeout("changeImageOnMouseOver('scrollThumb3'," + currentIndex + ")",50);
+
+currentIndex = imageIndexFirst + 3;
+
+setTimeout("changeImage('scrollThumb4',imageData[" + currentIndex + "][0])",75);
+
+setTimeout("changeImageOnMouseOver('scrollThumb4'," + currentIndex + ")",75);
+
+// Wait and check to see if user is still hovering over button
+
+// This pause gives the user a chance to move away from the button and stop scrolling
+
+setTimeout("scrollAgain('" + scrollDirection + "')",1000);
+
+}
+
+}
+
+}
+
+
+// This function determines whether or not to keep scrolling
+
+function scrollAgain(scrollDirection)
+
+{
+
+if (continueScroll == 1)
+
+{
+
+scrollImages(scrollDirection);
+
+}
+
+}
+
+
+// This function kicks off scrolling down (left)
+
+function scrollPrevious() {
+
+continueScroll = 1;
+
+scrollImages('down');
+
+}
+
+
+// This function kicks off scrolling up (right)
+
+function scrollNext() {
+
+continueScroll = 1;
+
+scrollImages('up');
+
+}
+
+
+// This function stops the scrolling action
+
+function scrollStop() {
+
+continueScroll = 0;
+
+}
+
+function setScrollImages(idx) {
+			if (idx > 147) {
+imageIndexLast = idx;
+var currentIndex = imageIndexLast;
+changeImage('scrollThumb4',imageData[currentIndex][0]);
+changeImageOnMouseOver('scrollThumb4',currentIndex);
+currentIndex = imageIndexLast - 1;
+setTimeout("changeImage('scrollThumb3',imageData[" + currentIndex + "][0])",25);
+setTimeout("changeImageOnMouseOver('scrollThumb3'," + currentIndex + ")",25);
+currentIndex = imageIndexLast - 2;
+setTimeout("changeImage('scrollThumb2',imageData[" + currentIndex + "][0])",50);
+setTimeout("changeImageOnMouseOver('scrollThumb2'," + currentIndex + ")",50);
+currentIndex = imageIndexLast - 3;
+setTimeout("changeImage('scrollThumb1',imageData[" + currentIndex + "][0])",75);
+setTimeout("changeImageOnMouseOver('scrollThumb1'," + currentIndex + ")",75);
+}
+else {
+imageIndexFirst = idx;
+var currentIndex = imageIndexFirst;
+changeImage('scrollThumb1',imageData[currentIndex][0]);
+changeImageOnMouseOver('scrollThumb1',currentIndex);
+currentIndex = imageIndexFirst + 1;
+setTimeout("changeImage('scrollThumb2',imageData[" + currentIndex + "][0])",25);
+setTimeout("changeImageOnMouseOver('scrollThumb2'," + currentIndex + ")",25);
+currentIndex = imageIndexFirst + 2;
+setTimeout("changeImage('scrollThumb3',imageData[" + currentIndex + "][0])",50);
+setTimeout("changeImageOnMouseOver('scrollThumb3'," + currentIndex + ")",50);
+currentIndex = imageIndexFirst + 3;
+setTimeout("changeImage('scrollThumb4',imageData[" + currentIndex + "][0])",75);
+setTimeout("changeImageOnMouseOver('scrollThumb4'," + currentIndex + ")",75);
+}
+}
+
+function checkInput(obj) {
+    var pokedex = -1;
+	//if (isNaN(obj.value)) {
+	/*
+	    alert ("nan"+obj.value)
+		var data = (obj.value.concat(".png")).toUpperCase();
+		int idx;
+		for(idx = 0; idx < 151; idx++)
+			if (imageData[idx][0].toUpperCase() === data)
+			     break;
+	    if (idx >= 0 && idx < 151)
+			handleThumbOnMouseOver(idx); 
+    */
+	//}
+	/*
+	else
+*/
+	if (obj.value > 0 && obj.value <= 151){
+			handleThumbOnMouseOver(obj.value - 1);
+			setScrollImages(obj.value - 1);
+	}
+	else {
+		var data = (obj.value.concat(".png")).toUpperCase();
+		for(idx = 0; idx < 151; idx++)
+			if (imageData[idx][0].toUpperCase() === data)
+			     break;
+	    if (idx >= 0 && idx < 151) {
+			handleThumbOnMouseOver(idx);
+			setScrollImages(idx);
+		}
+	}
+}
+
+  function setSelection(obj) {
+    if (obj.value === "undefined") 
+    {
+	document.getElementById("pokemonlisttextarea").value = '';
+    }
+	else {
+		var pokemonList = [];
+		if (obj.value === "Grass")
+		  pokemonList = ["Bulbasaur", "Ivysaur","Venusaur","Oddish","Gloom","Vileplume","Bellsprout","Weepinbell","Victreebel","Exeggcute","Exeggutor","Tangela"];
+		else
+		if (obj.value === "Fire")
+			pokemonList = ["Charmander","Charmeleon","Charizard","Vulpix","Ninetales","Growlithe","Arcanine","Ponyta","Rapidash","Magmar","Flareon"];
+		else
+		if (obj.value === "Water")
+pokemonList = ["Squirtle","Wartortle","Blastoise","Psyduck","Golduck","Poliwag","Poliwhirl","Poliwrath","Tentacool","Tentacruel","Seel","Dewgong","Shellder","Cloyster","Krabby","Kingler","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","Magikarp","Lapras","Vaporeon","Omanyte","Omastar","Kabuto","Kabutops"];
+		else
+		if (obj.value === "Bug")
+pokemonList = ["Caterpie","Metapod","Butterfree","Weedle","Kakuna","Beedrill","Paras","Parasect","Venonat","Venomoth","Pinsir"]; 
+		else
+		if (obj.value === "Normal")
+pokemonList = ["Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Meowth","Persian","Farfetch'd","Lickitung","Chansey","Kangaskhan","Tauros","Ditto","Eevee","Porygon","Snorlax"];
+		else
+		if (obj.value === "Poison")
+pokemonList = ["Ekans","Arbok","Nidoran Female","Nidorina","Nidoqueen","Nidoran Male","Nidorino","Nidoking","Zubat","Golbat","Grimer","Muk","Koffing","Weezing"];
+		else
+		if (obj.value === "Electric")
+pokemonList = ["Pikachu","Raichu","Magnemite","Magneton","Voltorb","Electrode","Electabuzz","Jolteon"];
+		else
+		if (obj.value === "Ground")
+pokemonList = ["Sandshrew","Sandslash","Diglett","Dugtrio","Geodude","Graveler","Golem","Onix","Cubone","Marowak","Rhyhorn","Rhydon"];
+		else
+		if (obj.value === "Fairy")
+pokemonList = ["Clefairy","Clefable","Jigglypuff","Wigglytuff"];
+		else
+		if (obj.value === "Fighting")
+pokemonList = ["Mankey","Primeape","Machop","Machoke","Machamp","Hitmonlee","Hitmonchan"];
+		else
+		if (obj.value === "Psychic")
+pokemonList = ["Abra","Kadabra","Alakazam","Slowpoke","Slowbro","Drowzee","Hypno","Mr_Mime","Jynx","Mewtwo","Mew"];
+		else
+		if (obj.value === "Flying")
+pokemonList = ["Doduo","Dodrio","Scyther","Gyarados","Aerodactyl","Articuno","Zapdos","Moltres"];
+		else
+		if (obj.value === "Ghost")
+pokemonList = ["Gastly","Haunter","Gengar"];
+		else
+		if (obj.value === "Dragon")
+pokemonList = ["Dratini","Dragonair","Dragonite"];
+		 
+		document.getElementById("pokemonlisttextarea").value = pokemonList;
+	}
+  }
+
+</script>
+<div align="center">
+<table border="0" cellpadding="5" cellspacing="0" width="700px">
+
+<tr>
+
+<td align="center" colspan="6" style="font-weight: bold; font-size: 14pt; color: silver;
+
+background-color: maroon" id="imageTitleCell">
+
+Bulbasaur</td>
+
+</tr>
+
+<tr>
+
+<td align="center" colspan="6" style="background-color: maroon">
+
+<img height="260" src="pokimages/Bulbasaur.png" style="border-right: 1px solid; border-top: 1px solid; border-left: 1px solid;
+
+border-bottom: 1px solid" width="260" id="imageLarge" alt="default" /></td>
+
+</tr>
+
+<tr>
+
+<td align="left" colspan="6" style="padding-right: 20px; padding-left: 20px; color: white;
+
+background-color: maroon" id="imageDescriptionCell">
+
+Pokedex number 1 Bulbasaur can be seen napping in bright sunlight. There is a seed on it's back. By soaking up the sun's rays, the seed grows progressively larger</td>
+
+</tr>
+
+<tr>
+
+<td id="scrollPreviousCell" style="color: Silver" onmouseover="scrollPrevious();" onmouseout="scrollStop();">
+
+<a href="javascript:handleThumbOnMouseOver(0);setScrollImages(0);">&lt;&lt;</a> Previous</td>
+
+<td>
+
+<img id="scrollThumb1" height="100" src="pokimages/Bulbasaur.png" style="border-right: 1px solid; border-top: 1px solid; border-left: 1px solid;
+
+border-bottom: 1px solid" width="100" onmouseover="handleThumbOnMouseOver(0);" /></td>
+
+<td>
+
+<img id="scrollThumb2" height="100" src="pokimages/Ivysaur.png" style="border-right: 1px solid; border-top: 1px solid; border-left: 1px solid;
+
+border-bottom: 1px solid" width="100" onmouseover="handleThumbOnMouseOver(1);" /></td>
+
+<td>
+
+<img id="scrollThumb3" height="100" src="pokimages/Venusaur.png" style="border-right: 1px solid; border-top: 1px solid; border-left: 1px solid;
+
+border-bottom: 1px solid" width="100" onmouseover="handleThumbOnMouseOver(2);" /></td>
+
+<td>
+
+<img id="scrollThumb4" height="100" src="pokimages/Charmander.png" style="border-right: 1px solid; border-top: 1px solid; border-left: 1px solid;
+
+border-bottom: 1px solid" width="100" onmouseover="handleThumbOnMouseOver(3);" /></td>
+
+<td id="scrollNextCell" style="color: Black" onmouseover="scrollNext();" onmouseout="scrollStop();">
+
+Next <a href="javascript:handleThumbOnMouseOver(150);setScrollImages(150);">&gt;&gt;</a></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<div align="center">
+
+Please Enter Either Pokedex Number (1 to 151) Either Pokemon Name : <input type="text" id="entry" name="entry" onchange="checkInput(this);" /> <br />
+Select the Pokemon Type :
+<select name="select" onchange="setSelection(this);">
+  <option value="undefined" selected>undefined</option> 
+  <option value="Grass">Grass</option>
+  <option value="Fire">Fire</option>
+  <option value="Water">Water</option>
+  <option value="Bug">Bug</option>
+  <option value="Normal">Normal</option>
+  <option value="Poison">Poison</option>
+  <option value="Electric">Electric</option>
+  <option value="Ground">Ground</option>
+  <option value="Fairy">Fairy</option>
+  <option value="Fighting">Fighting</option>
+  <option value="Psychic">Psychic</option>
+  <option value="Flying">Flying</option>
+  <option value="Ghost">Ghost</option>
+  <option value="Dragon">Dragon</option>
+  </select>
+<br/>
+<textarea id="pokemonlisttextarea" rows="3" cols="80"></textarea>
+</div>
+</body>
+
+</html>
