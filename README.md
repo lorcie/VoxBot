@@ -4,4 +4,4 @@ Enables to browse some Nodes Tree by type, by tag or name, to access item detail
 The "application" is decomposed of :
 - the interaction model : custom slot files, utterance text, intent json
 - the zip archive file : lambda, node JS,..
-- the html file containing some javascript to manage dynamic content for web browsing
+- the cshtml file containing some javascript to manage dynamic content for web browsing
