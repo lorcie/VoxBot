@@ -271,7 +271,7 @@ var START_NODE = "0";
 var MAX_CHILDREN_NUMBER=5;
 
 // --------------- Handlers -----------------------
-var appId = 'amzn1.ask.skill.485a34e7-57c5-4edb-92c8-eff4e154d6e0'; //'amzn1.echo-sdk-ams.app.your-skill-id';
+var appId = ''; //'amzn1.echo-sdk-ams.app.your-skill-id';
 
 // Called when the session starts.
 exports.handler = function (event, context, callback) {
